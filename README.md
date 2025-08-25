@@ -44,14 +44,14 @@ It allows fingerprint **enrollment, validation, listing, and deletion**, while a
 | TX              | GPIO 0   | Data to MCU |  
 | RX              | GPIO 2   | Data from MCU |  
 
-⚠️ R307 works on 3.3V logic. ESP32 GPIO pins are safe for direct connection.  
+⚠️ R307 works on 3.3V logic. NodeMCU GPIO pins are safe for direct connection.  
 
 ---
 
 ## 📚 Software Requirements  
 
 - [Arduino IDE](https://www.arduino.cc/en/software) (or PlatformIO)  
-- ESP32 board package installed in Arduino IDE  
+- NodeMCU board package installed in Arduino IDE  
 - Libraries:  
   - [Adafruit Fingerprint Sensor Library](https://github.com/adafruit/Adafruit-Fingerprint-Sensor-Library)  
   - WiFi (built-in with NodeMCU)  
