@@ -1,13 +1,13 @@
-# ESP32 Fingerprint Attendance & Logging System  
+# NodeMCU Fingerprint Attendance & Logging System  
 
-This project is a **biometric attendance/logging system** built using an **ESP32** microcontroller and an **R307 fingerprint sensor**.  
+This project is a **biometric attendance/logging system** built using an **NodeMCU** microcontroller and an **R307 fingerprint sensor**.  
 It allows fingerprint **enrollment, validation, listing, and deletion**, while also logging every authentication event to a **remote server** with timestamps.  
 
 ---
 
 ## 📌 Overview  
 
-- ESP32 connects to WiFi and syncs real-time clock via NTP.  
+- NodeMCU connects to WiFi and syncs real-time clock via NTP.  
 - Users can interact with the fingerprint sensor via the **Serial Menu**.  
 - Fingerprints are stored in the **R307 sensor’s flash database**.  
 - Logs (with user ID, action, and timestamp) are sent to a **Flask/Python backend** or any API endpoint.  
@@ -37,12 +37,12 @@ It allows fingerprint **enrollment, validation, listing, and deletion**, while a
 
 ## 🔌 Wiring  
 
-| R307 Sensor Pin | ESP32 Pin | Description |  
+| R307 Sensor Pin | MCU Pin | Description |  
 |-----------------|-----------|-------------|  
 | VCC (5V)        | 5V        | Power       |  
 | GND             | GND       | Ground      |  
-| TX              | GPIO 16   | Data to ESP32 |  
-| RX              | GPIO 17   | Data from ESP32 |  
+| TX              | GPIO 0   | Data to MCU |  
+| RX              | GPIO 2   | Data from MCU |  
 
 ⚠️ R307 works on 3.3V logic. ESP32 GPIO pins are safe for direct connection.  
 
@@ -54,16 +54,11 @@ It allows fingerprint **enrollment, validation, listing, and deletion**, while a
 - ESP32 board package installed in Arduino IDE  
 - Libraries:  
   - [Adafruit Fingerprint Sensor Library](https://github.com/adafruit/Adafruit-Fingerprint-Sensor-Library)  
-  - WiFi (built-in with ESP32)  
-  - HTTPClient (built-in with ESP32)  
+  - WiFi (built-in with NodeMCU)  
+  - HTTPClient (built-in with NodeMCU)  
 
 ---
 
-## ⚙️ Configuration  
 
-Edit the following values in the code before uploading:  
 
-```cpp
-const char* ssid = "your-SSID";         // WiFi SSID
-const char* password = "your-PASSWORD"; // WiFi Password
-const char* serverName = "http://<SERVER_IP>:5000/logs"; // API Endpoint
+
