@@ -3,11 +3,13 @@
 #include <SoftwareSerial.h>
 #define FINGER_RX 0
 #define FINGER_TX 2
-
+#define RELAY_Pin 3 //Connect to D3
 SoftwareSerial mySerial(FINGER_RX,FINGER_TX);
 Adafruit_Fingerprint finger = Adafruit_Fingerprint(&mySerial);
 
 void setup() {
+  pinMode(RELAY_pin,OUTPUT);
+  digitalWrite(RELAY_Pin,LOW);
   Serial.begin(74880);
   finger.begin(57600);
   if(finger.verifyPassword()) {
@@ -117,6 +119,7 @@ void verifyFinger() {
   p = finger.fingerSearch();
   if (p == FINGERPRINT_OK) {
     Serial.printf("✅ Match found! ID: %d, Confidence: %d\n", finger.fingerID, finger.confidence);
+    digitalWrite(RELAY_pin,HIGH);
     
   } else {
     Serial.println("❌ No match found.");
